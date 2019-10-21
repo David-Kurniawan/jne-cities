@@ -1,7 +1,5 @@
 # JNE Cities Autocomplete
 
-[![Build Status](https://travis-ci.org/David-Kurniawan/jne-cities.svg?branch=master)](https://travis-ci.org/David-Kurniawan/jne-cities)
-
 ### Installation
 
 ```sh
@@ -18,6 +16,27 @@ $response = (new Search())->show($q);
 return $response;
 ```
 
+### Success Response
+```json
+{
+	"code": 200,
+	"msg": "success",
+	"results": {
+		"suggestions": [{
+			"value": "BEKASI",
+			"code": "BKI10000"
+		}]
+	}
+}
+```
+
+### Error Response
+```json
+{
+	"code": 201,
+	"msg": "min length is 3"
+}
+```
 
 License
 ----
