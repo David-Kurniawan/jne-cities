@@ -1,0 +1,29 @@
+{
+    "name": "david-kurniawan/jne-cities",
+    "description": "Gets JNE City Autocomplete",
+    "type": "package",
+    "require": {
+        "php": "^7.1.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.0"
+    },
+    "license": "mit",
+    "authors": [
+        {
+            "name": "David Kurniawan",
+            "email": "jatinangorservice@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "David\\JneCities\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "David\\Tests\\": "tests"
+        }
+    }
+}
