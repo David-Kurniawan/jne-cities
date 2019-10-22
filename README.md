@@ -12,7 +12,7 @@ $ composer require david-kurniawan/jne-cities
 use David\JneCities\Search;
 
 $q = 'bek';
-$type = 'destination';
+$type = 'destination'; // destination | origin
 $response = (new Search())->show($q, $type);
 return $response;
 ```
