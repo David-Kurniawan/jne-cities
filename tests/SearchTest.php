@@ -10,7 +10,8 @@ class SearchTest extends TestCase
 	public function testSearch()
 	{
 		$q = 'bek';
-		$response = (new Search())->show($q);
+		$type = 'destination';
+		$response = (new Search())->show($q, $type);
 		$response = json_decode($response, true);
 
         return $this->assertArrayHasKey('results', $response);

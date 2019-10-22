@@ -6,6 +6,7 @@ class Base
 {
 	const PAGE_URL = 'https://www.jne.co.id/id/tracking/tarif';
 	const API_URL = 'https://www.jne.co.id/ajax/origin?query=';
+	const API_URL_DESTINATION = 'https://www.jne.co.id/ajax/destination?query=';
 	const HOST = 'www.jne.co.id';
 	const USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36';
 
@@ -14,6 +15,7 @@ class Base
 	public function __construct()
 	{
 		$this->cookiepath = dirname(__FILE__) . "/cookies/cookie.txt";
+		$this->availabletype = ['origin','destination'];
 	}
 
 	/**
@@ -85,16 +87,25 @@ class Base
 	 *
 	 * @return     json
 	 */
-	public function callApi($value)
+	public function callApi($value, $type)
 	{
 		try {
 			if (strlen($value) < 3)
 				return $this->errorResponse('min length is 3');
 
+			if (!in_array($type, $this->availabletype) || !in_array($type, $this->availabletype))
+				return $this->errorResponse('invalid type format');
+
+			if ($type == 'origin') {
+				$url = self::API_URL;
+			} elseif($type == 'destination') {
+				$url = self::API_URL_DESTINATION;
+			}
+			
 			$this->createSession();
 
 	        $curl = curl_init();
-	        curl_setopt($curl, CURLOPT_URL, self::API_URL . $value);
+	        curl_setopt($curl, CURLOPT_URL, $url . $value);
 	        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0);
 	        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
 	        curl_setopt($curl, CURLOPT_COOKIEFILE, $this->cookiepath);
