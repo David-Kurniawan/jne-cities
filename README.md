@@ -1,5 +1,8 @@
 # JNE Cities Autocomplete
 
+[![Build Status](https://travis-ci.org/David-Kurniawan/jne-cities.svg?style=flat-square)](https://travis-ci.org/David-Kurniawan/jne-cities)
+[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://doge.mit-license.org)
+
 ### Installation
 
 ```sh
